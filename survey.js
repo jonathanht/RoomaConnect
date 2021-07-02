@@ -5,6 +5,13 @@ Survey
 var json = {
     questions: [
         {
+            name: "name",
+            type: "text",
+            title: "Please enter your name:",
+            isRequired: true,
+            autoComplete: "name"
+        },{
+            
             type: "checkbox",
             name: "interest",
             title: "Which of the following interest you?",
@@ -55,8 +62,7 @@ survey
     .add(function (sender) {
         document
             .querySelector('#surveyResult')
-            var results = JSON.stringify(sender.data, null, 3);
-
+            .textContent = "Result JSON:\n" + JSON.stringify(sender.data, null, 3);
     });
 
 
