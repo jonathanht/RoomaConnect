@@ -26,7 +26,7 @@ var json = {
             ]
         },{
 
-            type: "checkbox",
+            type: "radiogroup",
             name: "time",
             title: "How long would you prefer to spend time with roomates?",
             isRequired: true,
@@ -39,7 +39,7 @@ var json = {
             ]
         },{
 
-            type: "checkbox",
+            type: "radiogroup",
             name: "dist",
             title: "How far would you be willing to drive/be driven?",
             isRequired: true,
