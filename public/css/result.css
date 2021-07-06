@@ -1,0 +1,39 @@
+.cards {
+    margin: 50px auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    font-family:sans-serif;
+    float:left;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.card { 
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+
+.card__image {
+    width:100%;
+    display:block;
+}
+
+.card__content {
+    text-align:center;
+    line-height: 1.5;
+    font-size: 0.9em;
+    padding:15px;
+    background: #fafafa;
+}
+
+.card__content > p:first-of-type {
+    margin-top: 0;
+}
+
+.card__content > p:last-of-type {
+    margin-bottom: 0;
+}

@@ -13,31 +13,27 @@ const {
     getCurrentUser,
     userLeave,
     getAllUsers,
-    getRoomUsers
+    getRoomUsers,
+    getAllJson,
   } = require('./utils/users');
 
 const users = [];
 
 
 io.on("connection", (socket) => {
-    console.log("a user connected");
-
     socket.on("joinRoom", (jsonResult) => {
         var obj = JSON.parse(jsonResult);
-        const user = userJoin(socket.id, obj.name);
-        //socket.jsonResult = jsonResult;
-        //users.push(jsonResult);
-        io.emit("joinRoom", getAllUsers());
+        const user = userJoin(socket.id, obj.name, obj);
+
+        //io.emit("joinRoom", getAllUsers());
+        io.emit("joinRoom", getAllJson());
     });
 
     socket.on("disconnect", () => {
         const user = userLeave(socket.id);
 
-        io.emit("joinRoom", getAllUsers());
+        io.emit("joinRoom", getAllJson());
     });
-
-        
-
 });
 
 server.listen(3000, () => {

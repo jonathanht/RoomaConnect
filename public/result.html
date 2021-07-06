@@ -4,29 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/result.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Document</title>
   </head>
   <body>
-    <ul id="userList">
-      <li></li>
-    </ul>
+    <div class="cards" id="cards">
+      <div class="card">
+        <img
+          src="https://randomuser.me/api/portraits/men/15.jpg"
+          alt=""
+          class="card__image"
+        />
+        <h1 id="name">John Doe</h1>
+        <div class="card__content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore
+            veniam, accusantium iste modi laborum sint!
+          </p>
+        </div>
+      </div>
+    </div>
+    <ul id="userList"></ul>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const socket = io();
 
       var userList = document.getElementById("userList");
-
+      var cardsList = document.getElementById("cards");
       var jsonResult = localStorage.getItem("jsonResult");
 
       socket.emit("joinRoom", jsonResult);
 
       socket.on("joinRoom", function (users) {
-        userList.innerHTML = "";
+        cardsList.innerHTML = "";
+
         users.forEach((user) => {
-          const li = document.createElement("li");
-          li.innerText = user;
-          userList.appendChild(li);
+          console.log(user.dist);
+
+          const content = `<div class="card">
+        <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="" class="card__image">
+        <h1 id="name">${user.name}</h1>
+        <div class="card__content">
+          <p>
+            Hello! I am interested in ${user.interest}. I would prefer to spend time with you guys ${user.time} a day. I would love to drive/be driven ${user.dist}
+          </p>
+        </div>
+      </div>
+      `;
+          cardsList.innerHTML += content;
         });
       });
     </script>

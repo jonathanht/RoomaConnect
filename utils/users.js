@@ -1,7 +1,7 @@
 const users = [];
 
-function userJoin(id, username) {
-  const user = { id, username };
+function userJoin(id, username, jsonResult) {
+  const user = { id, username, jsonResult };
 
   users.push(user);
 
@@ -33,6 +33,16 @@ function getAllUsers() {
   return usernamesList;
 }
 
+function getAllJson() {
+  const jsonList = [];
+
+  users.forEach((user) => {
+    jsonList.push(user.jsonResult);
+  });
+
+  return jsonList;
+}
+
 function getRoomUsers(room) {
   return users.filter((user) => user.room === room);
 }
@@ -43,4 +53,5 @@ module.exports = {
   userLeave,
   getAllUsers,
   getRoomUsers,
+  getAllJson,
 };
