@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    Hey
-    <form action="result.html">
-      <input
-        type="text"
-        name="username"
-        id="username"
-      />
-      <button type="submit" class="btn">Join</button>
-    </form>
-  </body>
+    <head>
+        <title>One choice - Checkbox question, Reactjs Survey Library Example</title><meta name="viewport" content="width=device-width"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.js"></script>
+        <script src="https://unpkg.com/react@16.5.0/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.5.0/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone@7.2.5/babel.min.js"></script>
+        <script src="https://unpkg.com/survey-react@1.8.54/survey.react.min.js"></script>
+        <link href="https://unpkg.com/survey-core@1.8.54/modern.min.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="./index.css"></head>
+    <body>
+        <div id="surveyElement" style="display:inline-block;width:100%;"></div>
+        <div id="surveyResult"></div>
+        <form action="result.html">
+            <input
+              type="text"
+              name="username"
+              id="username"
+            />
+            <button type="submit" class="btn">Join</button>
+          </form>
+        <script type="text/babel" src="./js/survey.js"></script>
+    </body>
 </html>

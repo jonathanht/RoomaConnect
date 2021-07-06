@@ -63,6 +63,7 @@ survey
         document
             .querySelector('#surveyResult')
             .textContent = "Result JSON:\n" + JSON.stringify(sender.data, null, 3);
+            localStorage.setItem("jsonResult", JSON.stringify(sender.data, null, 3));
     });
 
 
