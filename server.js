@@ -6,6 +6,12 @@ const socketio = require('socket.io');
 const path = require('path');
 const io = socketio(server);
 
+const moment = require('moment');
+const mongoose = require('mongoose');
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 const {
