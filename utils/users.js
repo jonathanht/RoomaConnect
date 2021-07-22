@@ -1,7 +1,7 @@
 const users = [];
 
-function userJoin(id, username, jsonResult) {
-  const user = { id, username, jsonResult };
+function userJoin(id, username, jsonResult, room) {
+  const user = { id, username, jsonResult, room };
 
   users.push(user);
 
@@ -33,10 +33,13 @@ function getAllUsers() {
   return usernamesList;
 }
 
-function getAllJson() {
+function getAllJson(room) {
   const jsonList = [];
 
-  users.forEach((user) => {
+  const specificUsers = users.filter((user) => user.room === room);
+  console.log(specificUsers);
+
+  specificUsers.forEach((user) => {
     jsonList.push(user.jsonResult);
   });
 

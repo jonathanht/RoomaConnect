@@ -51,7 +51,22 @@ var json = {
         
             ]
 
-        }
+        },
+
+        {
+
+            type: "radiogroup",
+            name: "room",
+            title: "What group will you join?",
+            isRequired: true,
+            colCount: 1, 
+            choices: [
+                "Dolphin",
+                "Sea otter",
+                "Daniel"
+
+            ]
+        },
     ]
 };
 

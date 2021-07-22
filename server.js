@@ -23,16 +23,18 @@ const users = [];
 io.on("connection", (socket) => {
     socket.on("joinRoom", (jsonResult) => {
         var obj = JSON.parse(jsonResult);
-        const user = userJoin(socket.id, obj.name, obj);
+        const user = userJoin(socket.id, obj.name, obj, obj.room);
+
+        socket.join(user.room);
 
         //io.emit("joinRoom", getAllUsers());
-        io.emit("joinRoom", getAllJson());
+        io.to(user.room).emit("joinRoom", getAllJson(user.room));
     });
 
     socket.on("disconnect", () => {
         const user = userLeave(socket.id);
 
-        io.emit("joinRoom", getAllJson());
+        io.to(user.room).emit("joinRoom", getAllJson(user.room));
     });
 });
 
